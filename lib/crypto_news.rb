@@ -24,9 +24,9 @@ attr_accessor :websites
 
   def menu
     # lists websites with index
-    puts "Please select a website for today's news or type exit or back at any time."
     input = gets.chomp
     while input != "exit"
+      puts "Please select a website for today's news or type exit or back at any time."
       case input
       when input=1
         submenu(0)
@@ -42,7 +42,17 @@ attr_accessor :websites
   def submenu(selection)
     this_site=websites[selection]
     puts "These are today's articles from #{this_site.name}"
-
+    this_site.articles.each.with_index do |article|
+      # list article with index
+    end
+    while input2 != "exit"
+      puts "Please select an article from this website or type exit or back at any time."
+      case input2
+      when input2=1
+        # open article number(0)
+      when input2="back"
+        # go back a level
+      end
   end
 
   def goodbye
