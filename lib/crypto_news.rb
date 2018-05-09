@@ -1,8 +1,6 @@
-require "crypto_news/version"
-
 class CryptoNews
 
-attr_accessor :websites
+  attr_accessor :websites
 
   def runtime
     greeting
@@ -37,6 +35,7 @@ attr_accessor :websites
       when input="back"
         # go back a level
       end
+    end
   end
 
   def submenu(selection)
@@ -53,6 +52,7 @@ attr_accessor :websites
       when input2="back"
         # go back a level
       end
+    end
   end
 
   def goodbye
