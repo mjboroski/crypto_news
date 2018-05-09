@@ -1,6 +1,8 @@
 require "bundler/gem_tasks"
 task :default => :spec
 
+require_all './lib/'
+
 def reload!
   load_all './lib'
 end

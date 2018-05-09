@@ -29,18 +29,24 @@ attr_accessor :websites
     while input != "exit"
       case input
       when input=1
-        submenu(1)
+        submenu(0)
       when input=2
-        submenu(2)
+        submenu(1)
       when input=3
-        submenu(3)
+        submenu(2)
       when input="back"
         # go back a level
       end
   end
 
-  def goodbye
+  def submenu(selection)
+    this_site=websites[selection]
+    puts "These are today's articles from #{this_site.name}"
 
+  end
+
+  def goodbye
+    puts "Thanks for using Crypto News!"
   end
 
 end
