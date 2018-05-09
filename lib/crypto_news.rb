@@ -23,7 +23,20 @@ attr_accessor :websites
   end
 
   def menu
-
+    # lists websites with index
+    puts "Please select a website for today's news or type exit or back at any time."
+    input = gets.chomp
+    while input != "exit"
+      case input
+      when input=1
+        submenu(1)
+      when input=2
+        submenu(2)
+      when input=3
+        submenu(3)
+      when input="back"
+        # go back a level
+      end
   end
 
   def goodbye
