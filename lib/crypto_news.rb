@@ -9,7 +9,7 @@ class CryptoNews
 
   def runtime
     greeting
-    site_scraper
+    create
     menu
     goodbye
   end
