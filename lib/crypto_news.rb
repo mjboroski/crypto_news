@@ -48,16 +48,15 @@ class CryptoNews
   def submenu(selection)
     this_site=websites[selection]
     puts "These are today's articles from #{this_site.name}:"
-    this_site.articles.each.with_index do |article|
-      # list article with index
+    this_site.articles.each.with_index do |article, i|
+      puts "#{i}. #{article.title}"
     end
     while input2 != "exit"
       puts "Please select an article from this website or type exit or back."
-      case input2
-      when input2=1
-        # open article number(0)
-      when input2="back"
-        # go back a level
+      if input2.to_i>0
+        start this_site.articles[(input2-1)].url
+      elsif input2="back"
+        menu
       end
     end
   end
