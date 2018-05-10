@@ -8,7 +8,7 @@ attr_accessor :name, :url,:top_article, :articles
 
 
   def scrape
-    # @articles
+    # gets articles, name, top_article
   end
 
 
