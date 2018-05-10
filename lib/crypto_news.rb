@@ -11,7 +11,7 @@ class CryptoNews
 
   def greeting
     puts "Welcome to Crypto News!!!"
-    puts "Today is #{todays_date}."
+    puts "Today is #{Date.today}."
   end
 
   def site_scraper
