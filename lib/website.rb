@@ -5,6 +5,8 @@ attr_accessor :name, :url,:top_article, :articles
   def initialize(link)
     @url=link
     get_name
+    send ("include Sites::#{@name.upcase}")
+    scrape
   end
 
   def get_name
@@ -13,11 +15,4 @@ attr_accessor :name, :url,:top_article, :articles
     title=title.first.split(":") if title.first.include?(":")
     @name=title.first.chomp
   end
-
-  def scrape
-
-    # gets articles, top_article
-  end
-
-
 end
