@@ -1,8 +1,13 @@
 class Website
 
-attr_accessor :articles
+attr_accessor :name, :url,:top_article, :articles
 
-  def article_scraper
+  def initialize(link)
+    @url=link
+  end
+
+
+  def scrape
     # @articles
   end
 

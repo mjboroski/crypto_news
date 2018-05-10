@@ -1,6 +1,11 @@
 class CryptoNews
-
+  @@list=["https://www.coindesk.com/","https://cointelegraph.com/","https://www.ccn.com/"]
   attr_accessor :websites
+
+  def initialize
+    @websites=[]
+    runtime
+  end
 
   def runtime
     greeting
@@ -14,9 +19,11 @@ class CryptoNews
     puts "Today is #{Date.today}."
   end
 
-  def site_scraper
-    @websites.each do |website|
-      # scrape website name, url, and top article
+  def create
+    @@list.each do |link|
+      website=Website.new(link)
+      website.scrape
+      @websites<<website
     end
   end
 
