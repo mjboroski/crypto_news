@@ -28,10 +28,12 @@ class CryptoNews
   end
 
   def menu
-    # lists websites with index
+    puts "Please select a website for today's news or type exit."
+    @websites.each.with_index(1) do |website, i|
+      puts "#{i}. #{website.name}"
+    end
     input = gets.chomp
     while input != "exit"
-      puts "Please select a website for today's news or type exit or back at any time."
       case input
       when input=1
         submenu(0)
@@ -39,20 +41,18 @@ class CryptoNews
         submenu(1)
       when input=3
         submenu(2)
-      when input="back"
-        # go back a level
       end
     end
   end
 
   def submenu(selection)
     this_site=websites[selection]
-    puts "These are today's articles from #{this_site.name}"
+    puts "These are today's articles from #{this_site.name}:"
     this_site.articles.each.with_index do |article|
       # list article with index
     end
     while input2 != "exit"
-      puts "Please select an article from this website or type exit or back at any time."
+      puts "Please select an article from this website or type exit or back."
       case input2
       when input2=1
         # open article number(0)

@@ -1,20 +1,20 @@
-module Sites
+class Sites
 
-  module COINDESK
+  class COINDESK
     def scrape
 
       # gets articles, top_article
     end
   end
 
-  module COINTELEGRAPH
+  class COINTELEGRAPH
     def scrape
 
       # gets articles, top_article
     end
   end
 
-  module CCN
+  class CCN
     def scrape
 
       # gets articles, top_article
