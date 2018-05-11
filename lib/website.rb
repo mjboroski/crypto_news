@@ -1,12 +1,11 @@
 class Website
-
+  include Sites
 attr_accessor :name, :url,:top_article, :articles
 
   def initialize(link)
     @url=link
     get_name
-    self.include_class
-    scrape
+    selector
   end
 
   def get_name
@@ -16,7 +15,21 @@ attr_accessor :name, :url,:top_article, :articles
     @name=title.first.chomp
   end
 
-  def self.include_class
-    send("self.included(Sites::#{@name.upcase}"))
+  def selector
+    director=@name.downcase.capitalize
+    send("#{director}(input?)")
   end
+
+  def Coindesk
+
+  end
+
+  def Cointelegraph
+
+  end
+
+  def Ccn
+
+  end
+
 end

@@ -55,7 +55,7 @@ class CryptoNews
       puts "Please select an article from this website or type exit or back."
       if input2.to_i>0
         start this_site.articles[(input2-1)].url
-      elsif input2="back"
+      elsif input2=="back"
         menu
       end
     end
