@@ -10,8 +10,8 @@ class CryptoNews
   def runtime
     greeting
     create
-    menu
-    goodbye
+    # menu
+    # goodbye
   end
 
   def greeting
@@ -47,16 +47,22 @@ class CryptoNews
   def submenu(selection)
     this_site=websites[selection]
     puts "These are today's articles from #{this_site.name}:"
-    this_site.articles.each.with_index do |article, i|
+    this_site.articles.each.with_index(1) do |article, i|
       puts "#{i}. #{article.title}"
     end
     puts "Please select an article from this website or type exit or back."
     input2 = STDIN.gets.chomp
-    while input2 != "exit" && input2 != "back"
-      if input2.to_i>0
-        start this_site.articles[(input2-1)].url
-      elsif input2=="back"
+    while input2 != "exit"
+      if input2=="back"
         menu
+      elsif input2.to_i>0
+        puts "Website: #{this_site.articles[input2.to_i-1].website}"
+        puts "Title: #{this_site.articles[input2.to_i-1].title}"
+        puts "Author: #{this_site.articles[input2.to_i-1].author}"
+        puts "Date: #{this_site.articles[input2.to_i-1].date}"
+        puts "Link: #{this_site.articles[input2.to_i-1].url}"
+        puts ""
+        submenu(selection)
       end
     end
   end

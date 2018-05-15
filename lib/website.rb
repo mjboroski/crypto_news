@@ -1,5 +1,5 @@
 class Website
-  attr_accessor :name, :url, :articles
+  attr_accessor :name, :url, :articles, :site
 
   def initialize(link)
     @url=link
@@ -9,7 +9,7 @@ class Website
   end
 
   def get_name
-    site=Nokogiri::HTML(open(@url))
+    @site=Nokogiri::HTML(open(@url))
     title=site.css("title").text.split(" ")
     title=title.first.split(":") if title.first.include?(":")
     @name=title.first.chomp
@@ -21,8 +21,15 @@ class Website
   end
 
   def Coindesk
-    site=Nokogiri::HTML(open(@url))
-    site.search("div.main article").each do |article|
+    a=Article.new("title a","http://www.google.com",self.name,"Bob",Date.today)
+    b=Article.new("title b","poop.com",self.name,"Bob",Date.today)
+    c=Article.new("title c","poop.com",self.name,"Bob",Date.today)
+    d=Article.new("title d","poop.com",self.name,"Bob",Date.today)
+    @articles<<a
+    @articles<<b
+    @articles<<c
+    @articles<<d
+    @site.search("div.main article").each do |article|
       puts "hello"
       title = article.search("a.fade").attr("title").strip
       url = article.search("a.fade").attr("href").strip
