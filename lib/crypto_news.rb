@@ -22,7 +22,6 @@ class CryptoNews
   def create
     @@list.each do |link|
       website=Website.new(link)
-      website.scrape
       @websites<<website
     end
   end
@@ -32,14 +31,14 @@ class CryptoNews
     @websites.each.with_index(1) do |website, i|
       puts "#{i}. #{website.name}"
     end
-    input = gets.chomp
+    input = STDIN.gets.chomp
     while input != "exit"
       case input
-      when input=1
+      when "1"
         submenu(0)
-      when input=2
+      when "2"
         submenu(1)
-      when input=3
+      when "3"
         submenu(2)
       end
     end
@@ -51,8 +50,9 @@ class CryptoNews
     this_site.articles.each.with_index do |article, i|
       puts "#{i}. #{article.title}"
     end
-    while input2 != "exit"
-      puts "Please select an article from this website or type exit or back."
+    puts "Please select an article from this website or type exit or back."
+    input2 = STDIN.gets.chomp
+    while input2 != "exit" && input2 != "back"
       if input2.to_i>0
         start this_site.articles[(input2-1)].url
       elsif input2=="back"
