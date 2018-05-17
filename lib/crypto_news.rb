@@ -11,7 +11,6 @@ class CryptoNews
     greeting
     create
     menu
-    goodbye
   end
 
   def greeting
@@ -42,6 +41,7 @@ class CryptoNews
         submenu(2)
       end
     end
+    goodbye
   end
 
   def submenu(selection)
@@ -66,6 +66,7 @@ class CryptoNews
         submenu(selection)
       end
     end
+    goodbye
   end
 
   def goodbye
