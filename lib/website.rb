@@ -21,36 +21,39 @@ class Website
   end
 
   def Coindesk
-    a=Article.new("title a","http://www.google.com",self.name,"Bob",Date.today)
-    b=Article.new("title b","poop.com",self.name,"Bob",Date.today)
-    c=Article.new("title c","poop.com",self.name,"Bob",Date.today)
-    d=Article.new("title d","poop.com",self.name,"Bob",Date.today)
-    @articles<<a
-    @articles<<b
-    @articles<<c
-    @articles<<d
-    @site.search("div.main article").each do |article|
-      puts "hello"
-      title = article.search("a.fade").attr("title").strip
-      url = article.search("a.fade").attr("href").strip
-      date = article.search("p.timeauthor time").text.strip
-      author = article.search("a.author").text.strip
+    @site.search("div.main .article").each do |article|
+      title = article.search("a.fade").attr("title").text
+      url = article.search("a.fade").attr("href").text
+      author = article.search("a.author").text
       website=self.name
-      this_article=Article.new(title,url,website,author,date)
-      puts this_article
+      this_article=Article.new(title,url,website,author)
       @articles<<this_article
     end
     self.articles
   end
 
   def Cointelegraph
-    puts "COINTELEGRAPH"
-    # site=Nokogiri::HTML(open(@url))
+    @site.search("div.main .post").each do |article|
+      title = article.search("a span.postTitle").text
+      url = article.search("a").attr("href").text
+      author = article.search("a span.author").text
+      website=self.name
+      this_article=Article.new(title,url,website,author)
+      @articles<<this_article
+    end
+    self.articles
   end
 
   def Ccn
-    puts "CCN"
-    # site=Nokogiri::HTML(open(@url))
+    @site.search("div.posts-row article").each do |article|
+      title = article.search("h4 a").text
+      url = article.search("h4 a").attr("href").text
+      author = "unlisted"
+      website=self.name
+      this_article=Article.new(title,url,website,author)
+      @articles<<this_article
+    end
+    self.articles
   end
 
 end

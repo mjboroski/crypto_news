@@ -6,3 +6,5 @@ require 'date'
 Bundler.require
 
 require_all './lib/'
+
+a=CryptoNews.new

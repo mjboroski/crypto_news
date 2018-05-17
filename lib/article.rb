@@ -1,12 +1,11 @@
 class Article
 
-  attr_accessor :title,:author,:date,:url,:website
+  attr_accessor :title,:author,:url,:website
 
-  def initialize(title,url,website,author="none",date="none")
+  def initialize(title,url,website,author="unlisted")
     @title=title
     @url=url
     @website=website
     @author=author
-    @date=date
   end
 end
