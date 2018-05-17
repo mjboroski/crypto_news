@@ -33,9 +33,9 @@ class Website
   end
 
   def Cointelegraph
-    @site.search("div.main .post").each do |article|
+    @site.search("div#main .post").each do |article|
       title = article.search("a span.postTitle").text
-      url = article.search("a").attr("href").text
+      url = article.search("a").attr("href")
       author = article.search("a span.author").text
       website=self.name
       this_article=Article.new(title,url,website,author)

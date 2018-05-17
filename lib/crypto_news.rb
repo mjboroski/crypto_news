@@ -62,6 +62,7 @@ class CryptoNews
         puts "Author: #{this_site.articles[input2.to_i-1].author}"
         puts "Link: #{this_site.articles[input2.to_i-1].url}"
         puts ""
+        sleep (3)
         submenu(selection)
       end
     end
